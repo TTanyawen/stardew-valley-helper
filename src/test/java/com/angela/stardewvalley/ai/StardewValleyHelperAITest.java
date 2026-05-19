@@ -13,4 +13,5 @@ class StardewValleyHelperAITest {
     void chat(){
         stardewValleyHelperAI.chat("你好，我Angela");
     }
+
 }

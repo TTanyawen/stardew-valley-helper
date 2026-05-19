@@ -15,4 +15,13 @@ class StardewValleyHelperAIServiceTest {
         System.out.println(stardewValleyHelperAIService.chat("你好,我是Angela，我刚刚开始星露谷游戏的游玩。"));
     }
 
+
+    @Test
+    void chatWithMemory() {
+        String res = stardewValleyHelperAIService.chat("你好,我是Angela");
+        System.out.println(res);
+        res = stardewValleyHelperAIService.chat("你好,我是谁来着?");
+        System.out.println(res);
+    }
+
 }
