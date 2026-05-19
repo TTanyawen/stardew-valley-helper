@@ -1,12 +1,25 @@
+
 spring:
   application:
     name: stardew-valley-helper
+  datasource:
+    url: jdbc:mysql://localhost:3306/stardew_valley_helper?serverTimezone=Asia/Shanghai
+    username: root
+    password: 2640
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQLDialect
 langchain4j:
   community:
     dashscope:
       chat-model:
         model-name: qwen-max
         api-key: <API Key>
+
 #       streaming-chat-model:
 #         model-name: qwen-max
 #         api-key: <Your API Key>
@@ -15,3 +28,5 @@ langchain4j:
 #         api-key: <Your API Key>
 # bigmodel:
 #   api-key: <Your API Key>
+server:
+  port: 8087
