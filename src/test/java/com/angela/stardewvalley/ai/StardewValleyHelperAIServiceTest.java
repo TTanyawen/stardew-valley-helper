@@ -1,5 +1,6 @@
 package com.angela.stardewvalley.ai;
 
+import dev.langchain4j.service.Result;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,6 +23,13 @@ class StardewValleyHelperAIServiceTest {
         System.out.println(res);
         res = stardewValleyHelperAIService.chat("你好,我是谁来着?");
         System.out.println(res);
+    }
+
+    @Test
+    void chatWithRag(){
+        Result<String> result=stardewValleyHelperAIService.chatWithRag("蛋节怎么过？");
+        System.out.println(result.sources());
+        System.out.println(result.content());
     }
 
 }

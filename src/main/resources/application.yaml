@@ -1,4 +1,3 @@
-
 spring:
   application:
     name: stardew-valley-helper
@@ -19,13 +18,13 @@ langchain4j:
       chat-model:
         model-name: qwen-max
         api-key: <API Key>
-
+      embedding-model:
+        model-name: text-embedding-v4
+        api-key: <API Key>
 #       streaming-chat-model:
 #         model-name: qwen-max
 #         api-key: <Your API Key>
-#       embedding-model:
-#         model-name: text-embedding-v4
-#         api-key: <Your API Key>
+
 # bigmodel:
 #   api-key: <Your API Key>
 server:
