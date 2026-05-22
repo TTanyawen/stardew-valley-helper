@@ -23,3 +23,7 @@ CREATE TABLE tb_message_detail (
    role VARCHAR(20) NOT NULL,   -- user(用户)/model(模型)
    content TEXT NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='消息详情表';
+
+use stardew_valley_helper;
+ALTER TABLE tb_message_group
+    ADD COLUMN message_level_system_prompt TEXT COMMENT '会话级系统提示词';

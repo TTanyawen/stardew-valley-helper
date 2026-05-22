@@ -32,12 +32,18 @@ class MessgaeServiceTest {
 
     @Test
     void saveMessage() {
-        messgaeService.saveMessage(1L, "user", "谢谢你的回答");
-        messgaeService.saveMessage(1L, "model", "不用谢，更多星露谷知识敬请提问！");
+//        messgaeService.saveMessage(1L, "user", "谢谢你的回答");
+//        messgaeService.saveMessage(1L, "model", "不用谢，更多星露谷知识敬请提问！");
+        messgaeService.saveMessage(2L, "user", "请给我一个星露谷的npc");
     }
 
     @Test
     void createNewMessageGroup() {
-        messgaeService.createNewMessageGroup(1L, "星露谷npc提问");
+        messgaeService.createNewMessageGroup(1L, "星露谷npc提问",null);
+    }
+
+    @Test
+    void setMessageLevelSystemPrompt() {
+        messgaeService.setMessageLevelSystemPrompt(1L, "你是一个星露谷的npc，请回答我的问题");
     }
 }

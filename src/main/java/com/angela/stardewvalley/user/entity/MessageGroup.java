@@ -14,4 +14,6 @@ public class MessageGroup {
     private Long userId;
     @Column(name = "title")
     private String title;
+    @Column(name = "message_level_system_prompt")
+    private String messageLevelSystemPrompt;
 }

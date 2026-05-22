@@ -30,10 +30,11 @@ public class MessgaeService {
     }
 
     //创建新组
-    public void createNewMessageGroup(Long userId,String title){
+    public void createNewMessageGroup(Long userId,String title,String messageLevelSystemPrompt){
         MessageGroup messageGroup = new MessageGroup();
         messageGroup.setUserId(userId);
         messageGroup.setTitle(title);
+        messageGroup.setMessageLevelSystemPrompt(messageLevelSystemPrompt);
         messageGroupRepo.save(messageGroup);
     }
 
@@ -44,7 +45,26 @@ public class MessgaeService {
         messageDetail.setRole(role);
         messageDetail.setContent(content);
         messageDetailRepo.save(messageDetail);
+
+        //查询该消息组的消息，若只有一条消息且title为空，则将messageLevelSystemPrompt设为第一条消息的内容的前15字符(不足15则取全部)
+        List<MessageDetail> messageDetails = messageDetailRepo.findAllMessgaeDetailByMessageId(messageGroupId);
+        if(messageDetails.size()==1){
+            MessageGroup messageGroup = messageGroupRepo.findById(messageGroupId).get();
+            if(messageGroup.getTitle().isEmpty()){
+                messageGroup.setTitle(messageDetails.get(0).getContent().substring(0,Math.min(messageDetails.get(0).getContent().length(),15)));
+                messageGroupRepo.save(messageGroup);
+            }
+        }
     }
+
+    //设置系统提示词
+    public void setMessageLevelSystemPrompt(Long messageGroupId,String messageLevelSystemPrompt){
+        MessageGroup messageGroup = messageGroupRepo.findById(messageGroupId).get();
+        messageGroup.setMessageLevelSystemPrompt(messageLevelSystemPrompt);
+        messageGroupRepo.save(messageGroup);
+    }
+
+
 
 
 }
