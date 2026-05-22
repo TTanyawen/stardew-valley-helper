@@ -5,11 +5,13 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "tb_user")
-public class User {
+@Table(name = "tb_message_group")
+public class MessageGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
-    private String password;
+    @Column(name = "user_id")
+    private Long userId;
+    @Column(name = "title")
+    private String title;
 }
