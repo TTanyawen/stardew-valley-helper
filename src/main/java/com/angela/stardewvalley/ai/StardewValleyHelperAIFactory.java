@@ -1,5 +1,6 @@
 package com.angela.stardewvalley.ai;
 
+import dev.langchain4j.mcp.McpToolProvider;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatModel;
@@ -17,6 +18,9 @@ public class StardewValleyHelperAIFactory {
     @Resource
     private ContentRetriever contentRetriever;
 
+    @Resource
+    private McpToolProvider mcpToolProvider;
+
     @Bean
     public StardewValleyHelperAIService createStardewValleyHelperAI(){
         ChatMemory chatMemory = MessageWindowChatMemory.withMaxMessages(10);
@@ -24,6 +28,7 @@ public class StardewValleyHelperAIFactory {
                 .chatModel(qwenChatModel)
                 .chatMemory(chatMemory)
                 .contentRetriever(contentRetriever)
+                .toolProvider(mcpToolProvider)
                 .build();
         return stardewValleyHelperAIService;
     }

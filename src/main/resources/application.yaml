@@ -25,7 +25,7 @@ langchain4j:
 #         model-name: qwen-max
 #         api-key: <Your API Key>
 
-# bigmodel:
-#   api-key: <Your API Key>
+bigmodel:
+ api-key: <API Key>
 server:
   port: 8087

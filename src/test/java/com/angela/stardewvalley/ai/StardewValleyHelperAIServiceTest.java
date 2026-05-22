@@ -31,5 +31,10 @@ class StardewValleyHelperAIServiceTest {
         System.out.println(result.sources());
         System.out.println(result.content());
     }
+    @Test
+    void chatWithMcp() {
+        String result = stardewValleyHelperAIService.chat("什么是懂鸟，懂鸟有什么功能？？");
+        System.out.println(result);
+    }
 
 }
