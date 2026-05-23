@@ -19,7 +19,7 @@ public class UserController {
     登录
      */
     @PostMapping("/login")
-    public boolean login(@RequestBody LoginReq req){
+    public long login(@RequestBody LoginReq req){
         return userService.login(req.getUsername(),req.getPassword());
     }
 

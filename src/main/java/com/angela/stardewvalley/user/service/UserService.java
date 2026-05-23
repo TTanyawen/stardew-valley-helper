@@ -1,5 +1,6 @@
 package com.angela.stardewvalley.user.service;
 
+import com.angela.stardewvalley.user.entity.User;
 import com.angela.stardewvalley.user.repo.UserRepo;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -12,8 +13,13 @@ public class UserService {
     /*
     登录
      */
-    public boolean login(String username,String password){
-        return userRepo.findByUsernameAndPassword(username,password)!=null;
+    public long login(String username,String password){
+        User user = userRepo.findByUsernameAndPassword(username,password);
+        if(user!=null){
+            return user.getId();
+        }else {
+            return -1;
+        }
     }
 
     /*

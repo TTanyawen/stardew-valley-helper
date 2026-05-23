@@ -17,6 +17,11 @@ public class MessageController {
     @Resource
     MessageService messageService;
 
+    @RequestMapping("/createNewMessageGroup")
+    public void createNewMessageGroup(Long userId,String title,String messageLevelSystemPrompt) {
+        messageService.createNewMessageGroup(userId,title,messageLevelSystemPrompt);
+    }
+
     @RequestMapping("/getAllMessageGroupByUserId")
     public List<MessageGroup> getAllMessageGroupByUserId(Long userId) {
         return messageService.findAllMessageGroupByUserId(userId);
@@ -24,5 +29,12 @@ public class MessageController {
     @RequestMapping("/getAllMessgaeDetailByMessageId")
     public List<MessageDetail> getAllMessgaeDetailByMessageId(Long messageGroupId) {
         return messageService.findAllMessgaeDetailByMessageId(messageGroupId);
+    }
+    /*
+    为消息组设置系统提示词
+     */
+    @RequestMapping("/setMessageLevelSystemPrompt")
+    public void setMessageLevelSystemPrompt(Long messageGroupId,String messageLevelSystemPrompt) {
+        messageService.setMessageLevelSystemPrompt(messageGroupId,messageLevelSystemPrompt);
     }
 }
