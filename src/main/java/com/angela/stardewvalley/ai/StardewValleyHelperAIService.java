@@ -1,10 +1,7 @@
 package com.angela.stardewvalley.ai;
 
 
-import dev.langchain4j.service.MemoryId;
-import dev.langchain4j.service.Result;
-import dev.langchain4j.service.SystemMessage;
-import dev.langchain4j.service.UserMessage;
+import dev.langchain4j.service.*;
 import reactor.core.publisher.Flux;
 
 public interface StardewValleyHelperAIService {
@@ -15,5 +12,13 @@ public interface StardewValleyHelperAIService {
     Result<String> chatWithRag(String userMessage);
     // 流式对话
     Flux<String> chatStream(@MemoryId int memoryGroupId, @UserMessage String messageContext);
+
+    //带系统提示词做参数的chatStream，这样可以动态构造提示词
+    @SystemMessage("{{systemPrompt}}")
+    Flux<String> chatStream(
+            @MemoryId Long memoryGroupId,
+            @V("systemPrompt") String systemPrompt,
+            @UserMessage String messageContext
+    );
 
 }

@@ -73,4 +73,9 @@ public class MessageService {
     public void saveAssistantMessage(int memoryId, String full) {
         this.saveMessage((long) memoryId, "model", full);
     }
+
+    //按messageGroupId查找messageGroup
+    public MessageGroup getMessageGroupById(int memoryGroupId) {
+        return messageGroupRepo.findById((long) memoryGroupId).get();
+    }
 }
