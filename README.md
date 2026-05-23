@@ -6,3 +6,6 @@
 <img width="1736" height="934" alt="image" src="https://github.com/user-attachments/assets/19858df2-5fd2-4455-8fc4-d84b7c6cc082" />
 
 <img width="646" height="670" alt="image" src="https://github.com/user-attachments/assets/0b235cff-0572-4a52-aa5c-bbd56e742e02" />
+
+- 可以设置会话级别的系统提示词
+- <img width="1910" height="938" alt="image" src="https://github.com/user-attachments/assets/ec18e9d9-0827-4fd7-a677-37653449cd9c" />
