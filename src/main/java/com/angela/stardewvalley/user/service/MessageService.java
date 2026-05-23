@@ -13,7 +13,7 @@ import java.util.List;
     消息相关
  */
 @Service
-public class MessgaeService {
+public class MessageService {
     @Resource
     private MessageGroupRepo messageGroupRepo;
     @Resource
@@ -65,6 +65,12 @@ public class MessgaeService {
     }
 
 
+    public void saveUserMessage(int memoryId, String message) {
+//        转long
+        this.saveMessage((long) memoryId, "user", message);
+    }
 
-
+    public void saveAssistantMessage(int memoryId, String full) {
+        this.saveMessage((long) memoryId, "model", full);
+    }
 }

@@ -27,3 +27,7 @@ CREATE TABLE tb_message_detail (
 use stardew_valley_helper;
 ALTER TABLE tb_message_group
     ADD COLUMN message_level_system_prompt TEXT COMMENT '会话级系统提示词';
+
+use stardew_valley_helper;
+ALTER TABLE tb_message_detail
+    MODIFY COLUMN content LONGTEXT NOT NULL COMMENT '消息内容';
